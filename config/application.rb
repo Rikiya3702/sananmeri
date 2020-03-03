@@ -30,6 +30,13 @@ module Myapp
     # the framework and any gems in your application.
 
     # Don't generate system test files.
-    config.generators.system_tests = nil
+    # config.generators.system_tests = nil
+    config.generators do |g|
+      g.test_framework :rpec,
+      fixtures: true,
+      view_spects: false,
+      helper_specs: false,
+      routing_specs: false
+    end
   end
 end
