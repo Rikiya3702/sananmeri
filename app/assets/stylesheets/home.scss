@@ -1,6 +1,10 @@
 body {
   font: 14px "Century Gothic", Futura, sans-serif;
-  margin: 20px;
+  margin: 0;
+  a:link, a:visited, a:hover, a:active {
+    color: $color-text;
+    text-decoration: none;
+  }
 }
 
 ol, ul {
