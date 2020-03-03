@@ -1,2 +1,14 @@
 %h1 Posts#index
-%p Find me in app/views/posts/index.html.haml
+= link_to "newしちゃう？", new_post_path
+.post
+  - @posts.each do |post|
+    .post_item
+      .post_title
+        = link_to post.title, post_path(post)
+        .post_edit
+          - if !post.public
+            xx非公開xx
+          = link_to "●", edit_post_path(post)
+          = link_to "罰", post_path(post), method: :delete
+      .post_content
+        = post.content

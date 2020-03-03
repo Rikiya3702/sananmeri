@@ -1,0 +1,18 @@
+.post_item{
+  width: 370px;
+  margin: 10px;
+  border: 1px solid $color-main;
+}
+.post_title{
+  font-size: 110%;
+  background: $color-base;
+  border: 1px dotted $color-main;
+  padding: 4px 3px;
+}
+.post_content{
+  padding: 4px 3px;
+}
+.post_edit{
+  display: inline;
+  float: right;
+}
