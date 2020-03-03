@@ -19,12 +19,15 @@ nav{
 
 .logo{
   display: inline-block;
-  width: 370px;
+  float: left;
+  width: 200px;
   font-size: 37px;
   margin: 20px 0 20px 15px;
 }
 
 .menu{
   display: inline-block;
-  text-align: right;
+  float: left;
+    margin:auto 30px auto 0px;
+  // text-align: right;
 }
