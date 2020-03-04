@@ -8,7 +8,9 @@
         .post_edit
           - if !post.public
             xx非公開xx
-          = link_to "●", edit_post_path(post)
-          = link_to "罰", post_path(post), method: :delete
+          = link_to "", edit_post_path(post), class: "fas fa-edit"
+          = link_to "", post_path(post), method: :delete, class: "fas fa-trash"
       .post_content
-        = post.content
+        = simple_format post.content
+      .post_date
+        = post.updated_at.strftime("%Y/%m/%d %H:%M:%S")

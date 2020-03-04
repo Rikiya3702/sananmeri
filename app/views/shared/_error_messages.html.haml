@@ -1,0 +1,7 @@
+- if object.errors.any?
+  #error_explanation.mb-3
+    入力エラーがあります
+    %ul
+    - object.errors.full_messages.each do |msg|
+      %li
+        = msg

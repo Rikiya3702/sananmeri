@@ -15,6 +15,7 @@ gem 'babel-source', '~> 5.8.35'
 gem 'react-rails'
 gem 'haml-rails'
 gem 'html2haml'
+gem 'font-awesome-sass'
 gem 'rails-i18n'
 
 group :development, :test do
