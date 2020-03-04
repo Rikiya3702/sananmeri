@@ -17,6 +17,7 @@ gem 'haml-rails'
 gem 'html2haml'
 gem 'font-awesome-sass'
 gem 'rails-i18n'
+gem 'devise'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
