@@ -7,8 +7,8 @@ Rails.application.routes.draw do
     :sessions => 'users/sessions'
   }
 
-  get 'home/index'
-  get 'home/reacttutorial'
+  get 'home', to: 'home#index'
+  get 'reactt', to: 'home#reacttutorial'
 
   resources :posts
 end
