@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   # get 'users/show/:id', to: 'users#show'
   # delete 'users/destroy/:id', to: 'users#destroy'
 
-  resources :users, only:[:index, :show, :destroy]
+  resources :users, only:[:index, :destroy]
   devise_for :users, :controllers => {
     :registrations => 'users/registrations',
     :sessions => 'users/sessions'

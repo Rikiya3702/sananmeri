@@ -5,6 +5,12 @@ RSpec.describe Post, type: :model do
     expect(FactoryBot.build(:post)).to be_valid
   end
 
+  it "user_idがなければ無効である" do
+    post = FactoryBot.build(:post, user_id: nil)
+    post.valid?
+    expect(post.errors[:user_id]).to include("を入力してください")
+  end
+
   it "51文字のtitleは無効である" do
     post = FactoryBot.build(:post, title: "t" * 100)
     post.valid?
