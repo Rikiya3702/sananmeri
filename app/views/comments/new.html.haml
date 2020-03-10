@@ -1,0 +1,8 @@
+= form_for @comment, remoto: false  do |f|
+  = render 'shared/error_messages', object: f.object
+
+  .form_item
+    = f.label :content
+    = f.text_area :content
+  .form_item
+    = f.submit

@@ -3,7 +3,8 @@ nav{
   height: 100px;
 
   background-color: $color-base;
-  border: 3px solid $color-main;
+  border-bottom: 3px solid $color-main;
+  border-top: 3px solid $color-main;
 
   ul{
     list-style: none;

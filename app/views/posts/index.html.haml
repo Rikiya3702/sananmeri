@@ -8,9 +8,37 @@
         .post_edit
           - if !post.public
             xx非公開xx
-          = link_to "", edit_post_path(post), class: "fas fa-edit"
-          = link_to "", post_path(post), method: :delete, class: "fas fa-trash"
+          - if has_authority?(post)
+            = link_to "", edit_post_path(post), class: "fas fa-edit"
+            = link_to "", post_path(post), method: :delete, class: "fas fa-trash"
+        .post_owner
+          = link_to post.user.nickname, user_path(post.user)
       .post_content
         = simple_format post.content
       .post_date
         = post.updated_at.strftime("%Y/%m/%d %H:%M:%S")
+      .comments
+        .comments_head
+          - if post.comments.present?
+            = "コメント一覧"
+          - else
+            = "コメントはありません"
+        .comments_body
+          %ul
+            - post.comments.each do |comment|
+              %li
+                = comment.user.nickname
+                = ":"
+                = comment.content
+                .post_date
+                  - if has_authority?(comment)
+                    = link_to "", comment_path(comment), method: :delete, class: "fas fa-trash"
+                  = comment.updated_at.strftime("%Y/%m/%d %H:%M:%S")
+          = form_for @comment, remoto: false  do |f|
+            = render 'shared/error_messages', object: f.object
+            = f.hidden_field :post_id, value: post.id
+            .form_item
+              = f.label :content
+              = f.text_area :content
+            .form_item
+              = f.submit
