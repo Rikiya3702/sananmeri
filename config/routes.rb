@@ -5,15 +5,13 @@ Rails.application.routes.draw do
   get 'home', to: 'home#index'
   get 'reactt', to: 'home#reacttutorial'
 
-  # get 'users', to: 'users#index'
-  # get 'users/show/:id', to: 'users#show'
-  # delete 'users/destroy/:id', to: 'users#destroy'
-
-  resources :users, only:[:index, :destroy]
   devise_for :users, :controllers => {
     :registrations => 'users/registrations',
     :sessions => 'users/sessions'
   }
 
+  resources :users, only:[:index, :show, :destroy]
+  resources :comments, only:[:new, :create, :destroy]
   resources :posts
+
 end

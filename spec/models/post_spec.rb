@@ -41,4 +41,10 @@ RSpec.describe Post, type: :model do
     expect(FactoryBot.build(:post).public).to eq true
   end
 
+  it "userの削除と共にpostが削除される" do
+    user = FactoryBot.create(:user)
+    post = FactoryBot.create(:post, user: user)
+    expect{ user.destroy }.to change(Post, :count).by(-1)
+  end
+
 end

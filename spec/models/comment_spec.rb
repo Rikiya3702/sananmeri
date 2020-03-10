@@ -32,12 +32,8 @@ RSpec.describe Comment, type: :model do
 
   it "userの削除と共にcommentが削除される" do
     user = FactoryBot.create(:user)
-    post = FactoryBot.create(:post)
-
-
-    post2 = Post.find(post.id)
-
-    expect{ user.destroy }.to change(Post, :count).by(-1)
+    comment = FactoryBot.create(:comment, user: user)
+    expect{ user.destroy }.to change(Comment, :count).by(-1)
   end
 
 end
