@@ -22,26 +22,6 @@ ActiveRecord::Schema.define(version: 2020_03_11_081730) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
-  create_table "goods", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "post_id"
-    t.bigint "comment_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["comment_id"], name: "index_goods_on_comment_id"
-    t.index ["post_id"], name: "index_goods_on_post_id"
-    t.index ["user_id"], name: "index_goods_on_user_id"
-  end
-
-  create_table "like_posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "post_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["post_id"], name: "index_like_posts_on_post_id"
-    t.index ["user_id"], name: "index_like_posts_on_user_id"
-  end
-
   create_table "likeposts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "post_id", null: false
@@ -81,11 +61,6 @@ ActiveRecord::Schema.define(version: 2020_03_11_081730) do
 
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
-  add_foreign_key "goods", "comments"
-  add_foreign_key "goods", "posts"
-  add_foreign_key "goods", "users"
-  add_foreign_key "like_posts", "posts"
-  add_foreign_key "like_posts", "users"
   add_foreign_key "likeposts", "posts"
   add_foreign_key "likeposts", "users"
   add_foreign_key "posts", "users"

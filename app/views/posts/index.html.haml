@@ -15,6 +15,10 @@
           = link_to post.user.nickname, user_path(post.user)
       .post_content
         = simple_format post.content
+      .post_like
+        = "#{post.likeposts.count} いいねされてる"
+        = link_to "いいねする", likeposts_path(post_id: post.id), method: :post
+        = link_to "いいね消す", likepost_path(post.id), method: :delete
       .post_date
         = post.updated_at.strftime("%Y/%m/%d %H:%M:%S")
       .comments
